@@ -21,6 +21,12 @@ class ListOfReposViewModel @Inject constructor(private var repository: GitHubRep
     var repos : LiveData<List<Repo>> = mRepos
     private var mUserFound = MutableLiveData<Boolean>()
     var userFound : LiveData<Boolean> = mUserFound
+    private var mLoading = MutableLiveData<Boolean>()
+    var loading : LiveData<Boolean> = mLoading
+
+    init {
+        mLoading.value = true
+    }
 
     fun fetchRepos(username: String) =
         disposable.add(
@@ -31,10 +37,14 @@ class ListOfReposViewModel @Inject constructor(private var repository: GitHubRep
                     override fun onSuccess(t: List<Repo>) {
                         mRepos.value = t
                         mUserFound.value = true
+                        mLoading.value = false
+
                     }
                     override fun onError(e: Throwable) {
-                        if (Regex(NetworkUtils.HTTP_NOT_FOUND.toString()).containsMatchIn(e.message ?: return))
+                        if (Regex(NetworkUtils.HTTP_NOT_FOUND.toString()).containsMatchIn(e.message ?: return)) {
                             mUserFound.value = false
+                            mLoading.value = false
+                        }
                     }
                 })
         )

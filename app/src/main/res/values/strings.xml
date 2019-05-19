@@ -5,4 +5,26 @@
     <string name="edit_text_username_hint">GitHub username</string>
     <string name="button_search_repos">search repos</string>
     <string name="edit_text_username_error">username can\'t be empty</string>
+
+    <!-- repoDetailsActivity strings !-->
+    <string name="forked">is fork : </string>
+    <string name="forks_count">forks count : </string>
+    <string name="watchers_count">watchers count : </string>
+    <string name="language">language : </string>
+    <string name="link">link :</string>
+    <string name="descrpition">description : </string>
+    <string name="_true">true</string>
+    <string name="_false">false</string>
+
+    <!-- dataLoadingFragment strings !-->
+    <string name="data_loading">loading data . . .</string>
+
+    <!-- global errors msg -->
+    <string name="sth_went_wrong">something went wrong</string>
+    <string name="no_description">this repo has no description</string>
+    <string name="no_internet">check your internet connection</string>
+    <string name="no_user">this user doesn\'t exist</string>
+    <string name="no_repos">this user has no repos</string>
+    <string name="server_response_error">server response error</string>
+
 </resources>
